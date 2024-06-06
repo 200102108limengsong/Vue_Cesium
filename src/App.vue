@@ -1,11 +1,13 @@
 <script setup>
-import CesiumViewer from './components/CesiumViewer.vue'; 
+
+import LeafletMap from './components/LeafletViewer.vue';
+import CesiumViewer from './components/CesiumViewer.vue';
+
 </script>
 
 <template>
    <cesium-viewer></cesium-viewer>
+   <leaflet-map></leaflet-map>
 </template>
 
-<style scoped>
-
-</style>
+<style></style>
