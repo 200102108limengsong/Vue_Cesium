@@ -11,11 +11,14 @@ import { onMounted } from 'vue';
 
 onMounted(() => {
     const map = L.map('leafletContainer').setView([39.56, 118.25], 6);
-    L.tileLayer('https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=7&x={x}&y={y}&z={z}', {
-        subdomains: '1234',
-        maxZoom: 18,
-        attribution: '© 高德地图'
-    }).addTo(map);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWVuZ3NvbmdsaSIsImEiOiJjbHgzemp1ZGExMnhiMmxvcXFtYmhrOXdtIn0.X6pkcAiiHaZKE9NNhfG8lg', {
+    maxZoom: 18,
+    id: 'mapbox/outdoors-v11', // 你可以选择不同的样式
+    tileSize: 512,
+    zoomOffset: -1,
+    attribution: '© Mapbox © OpenStreetMap'
+  }).addTo(map);
+
     map.pm.addControls({
         position: "topleft",
         drawPolygon: false,
@@ -42,7 +45,7 @@ onMounted(() => {
 
 <style scoped>
 #leafletContainer {
-    height: 100vh;
+    height: 90vh;
     width: 100vw;
 }
 </style>
